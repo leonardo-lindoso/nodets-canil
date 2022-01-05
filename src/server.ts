@@ -18,7 +18,8 @@ server.use(express.static(path.join(__dirname, '../public')));
 // Rotas
 server.use(mainRoutes);
 server.use((req, res)=>{
-    res.send('Página não encontrada!');
+    res.statusCode = 404;
+    res.render('pages/404');
 });
 
 server.listen(process.env.PORT);
